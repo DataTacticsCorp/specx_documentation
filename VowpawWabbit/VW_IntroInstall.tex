@@ -1,0 +1,19 @@
+\section{Vowpal Wabbit}
+\subsection{Introduction}
+
+\ac{VW} is an online and batch machine learning algorithm developed specifically for the requirements of processing massive datasets. \ac{VW} differentiates itself from other machine learning algorithms in its capability to extract rules and patterns without surveying the entire dataset, allowing it to handle large datasets fast and efficiently.
+
+As a classifier, \ac{VW} aims to be at or beyond the state of the art for prediction performance, and there are several datasets where this is achieved. Even with the foundations of powerful core algorithms, \ac{VW} lends itself to the current state of research prototype simply due to the lack of surrounding infrastructure and design desired for deployability
+
+\ac{VW} is currently being implemented with the capability of “tera-scale” data processing through an AllReduce (MPI/MapReduce hybrid) implementation. AllReduce is a solution that takes the best features of \ac{MPI} and MapReduce while eliminating all the drawbacks. \ac{MPI} suffers from lacking fault tolerant capabilities and no data locality knowledge. MapReduce is known for its high initialization and shutdown cost, dependencies on subsequent phase completions of jobs, and the need to refactor code into sequences of both map and reduce operations. AllReduce provides a single function that can be placed in locations in a single machine code that that will provide multi-node parallelization without the need to refactor the code.
+
+AllReduce also uses MapReduces data locality infrastructure to execute map only jobs on the nodes where the data is. With the AllReduce framework, swap space/hard drive is available to extend the memory footprint available to a Machine learning process instead of being limited to a preconfigured allocated memory size for MapReduce jobs. AllReduce uses Hadoop’s speculative execution approach to deal with the slow node problem. All these features provide an infrastructure that is 3 orders of magnitude faster for processing machine learning algorithms on Big Data datasets.
+
+\ac{VW} additionally has a basic R binding which allows it to be called from R. This project has the potential to greatly improve that interface, because refactoring the code to operate as a reduction will also make the code less monolithic allowing a more atomic interface to the various primitives and technical tricks built into \ac{VW}.
+
+Development and integration of the \ac{VW} speed enhancements (different Hashes and optimized linear predictor) will not impact each other. \ac{VS} development can ignore \ac{VW} enhancements because there is already an existing instance of a \ac{VW} implementation. Any enhancements to this implementation will be functionally transparent to \ac{VS}. The core necessary alteration to \ac{VW} is making it function well as a learning reduction, which implies refactoring the code in a manner which keeps it performant. In general, this is feasible---preliminary work has already been done, but significant work remains. A good learning reduction system is critical to \ac{VS}, because \ac{SEARN} is a learning reduction: without it we have a system that is difficult to program, slow, or both.
+
+In order to meet the milestones and reduce the experimental risk, we propose to conduct an initial study to evaluate the feasibility of the \ac{SEARN} and \ac{VW} combination to perform sequence labeling. This study will determine if \ac{VW} can be used by the \ac{SEARN} algorithm for simple predictions to solve a complex prediction problem.
+
+Concurrent with the integration of \ac{SEARN} and \ac{VW} will be enhancements to \ac{VW}. \ac{VW} speed enhancements are transparent to \ac{SEARN}. Documentation of the overall \ac{VS} capability will be developed for users and external developers. To make \ac{VS} accessible to as wide an audience, as a possible example, test sets and tutorials will be provided as a roadmap for using \ac{VS}.
+

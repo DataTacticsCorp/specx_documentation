@@ -1,0 +1,28 @@
+\section{Introduction}
+
+\todo[inline]{Need to edit this - essentially pulled it from the prop}
+
+\subsection{Summary}
+The problem of extracting meaningful and accurate knowledge in the form of structure (entities and their relationships) from unstructured and semi-structured data sources (text documents, message traffic, free form text fields in structured data sources) is critical to supporting a successful decision-making process as the military is flooded with and generates increasing volumes of data. Without enabling tools and technologies that will scale to the volumes and diversity of data, decision makers at all echelons face substantial risks from inaccurate associations or mistaken identification. Data Tactics has brought together a team of leading experts in \ac{NLP}  and “big data” analytics with the goal of developing a library of \ac{CASE}.
+The objectives posed by DARPA on the XDATA effort are especially appealing and meaningful to this team as our companies have worked on several successful, innovative "big data” analytics initiatives over the last several years for the Army, DARPA, and the Intelligence Community that are currently supporting operational missions today. Our experience under these efforts gives us a unique appreciation of the technical challenges presented by the non-prose nature of unstructured text common to many data sources and processing that data with common \ac{NLP} tools and technologies. Couple, the unique nature of this data with the ever increasing volume of data to be processed and the need for a robust \ac{NLP} toolkit to operate at web-scales on this data to support operational decision makers is critical.
+This will represent a series of interdependent research efforts to implement a scalable, flexible and modular open source library leveraging the best of breed solutions in \ac{ML}, \ac{NLP}, and cloud technologies.
+\subsection{Goals and Impact}
+The end goal for \ac{CASE} is to minimize the need for specialized domain knowledge and manual analysis by providing a processing algorithm/tool for finding relationships/information in web scale data by using the \ac{SEARN} and \ac{VW} to create \ac{VS}. To get there, we need a machine learning algorithm that can scale to very complex learning problems with complex feature sets, applied on huge amounts of data.
+Currently, we have algorithms that scale to large data, as implemented in \ac{VW}. We also have developed algorithms for efficiently solving complex learning problems with complex features, \ac{SEARN}. To enable our main goal, we will analyze the combination of these two approaches, and perform novel research to attenuate any remaining computational bottlenecks.
+The capabilities of \ac{VS} can be used to support solving problems such as Entity Detection and Tracking, document summarization, etc. at the "Big Data" level. Development of \ac{VS} will benefit two distinct sets of users. First, \ac{VS} will serve a large community of developers and integrators for DoD and the IC who seek to make use of \ac{VS}'s capabilities at a high level, as a convenient, prepackaged library for large-scale core \ac{NLP}. For this community, \ac{VS} will provide an easy to use interface to routines for tokenization, part-of-speech tagging, chunking and named entity resolution, and parse tree construction. Second, its fast and scalable capabilities in sequence learning and structured prediction will be of use to researchers and developers working on core problems of \ac{NLP}, such as syntactic parse tree construction, as well as those with a research interest in structured prediction generally. For these users, \ac{VS} will provide a low-level \ac{API} with direct access to the parameters and operation of \ac{SEARN} and the underlying classifier, either \ac{VW} or other options such as logistic regression or linear \ac{SVM}s.
+
+Prototype implementations of both \ac{SEARN} and \ac{VW} are already available under open source licenses. Although the core algorithms of each method are extremely powerful, they currently lack much of the supporting architecture and infrastructure required to be easily deployable. In addition to developing this supporting architecture, however, the current proposal will support a great deal of further fundamental research in the areas of large-scale machine learning and \ac{NLP}. The resulting improvements will be incorporated into \ac{VS} and made widely available. 
+
+Additional research efforts will be focused upon the extension of VS through:
+
+\begin{enumerate}
+    \item Incorporate Non-greedy search methods (i.e. Beam Search) for improved prediction performance
+
+    \item Derive active learning frameworks for "cutting off" forward roll-outs when the model is sure to achieve super-efficient active learning. These improvements will allow \ac{VS} to process labels at logarithmic time speeds.
+
+    \item Research and development of semi-supervised variants of \ac{SEARN} and optimization of the \ac{VW} linear predictor.
+
+    \item  Research and investigation of different hashes to minimize hardware cache
+
+\end{enumerate}
+

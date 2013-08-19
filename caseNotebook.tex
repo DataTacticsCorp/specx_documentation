@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+\usepackage{makeidx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[dvipsnames,svgnames,table]{xcolor}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{ulem}
+\usepackage[colorlinks]{hyperref}
+\usepackage[colorinlistoftodos, textwidth=4cm, shadow]{todonotes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage[printonlyused,withpage]{acronym}
+
+\usepackage{tikz}
+\usepackage{xtab}
+
+
+% needed if we are going to be including UML 
+%\usepackage[
+% school,
+% simplified
+%]{pgf-umlcd}
+
+% Comment out below to get rid of the watermark
+\usepackage{draftwatermark}
+\SetWatermarkScale{4}
+
+%
+%	PDF Stuff
+%
+\usepackage{hyperref}
+ %\usepackage{memhfixc}
+
+
+
+% 
+
+
+\author{Philip Sage and Stephen Kunath}
+\title{CASE Notebook}
+\usepackage[paperwidth=612pt,paperheight=792pt,top=72pt,right=72pt,bottom=72pt,left=90pt]{geometry}
+
+
+
+
+%\makeatletter
+%	\newenvironment{indentation}[3]%
+%	{\par\setlength{\parindent}{#3}
+%	\setlength{\leftmargin}{#1}       \setlength{\rightmargin}{#2}%
+%	\advance\linewidth -\leftmargin       \advance\linewidth -\rightmargin%%
+%	\advance\@totalleftmargin\leftmargin  \@setpar{{\@@par}}%
+%	\parshape 1\@totalleftmargin \linewidth\ignorespaces}{\par}%
+%\makeatother 
+
+% new LaTeX commands
+
+
+\begin{document}
+
+
+\include{./title_page/TitlePage_wLogo}
+
+
+{%\raggedright
+\textbf{\uppercase{Table Of Contents}}
+\tableofcontents
+\pagebreak{}
+
+\begin{center}
+\textbf{\uppercase{Document Change Sheet}}
+\end{center}
+
+%%%%%%%%%%%%%%%%
+%%%%%%%  VERSION INFORMATION EDIT EACH RELEASE OF THIS DOCUMENT
+
+
+\tablefirsthead{\hline \textbf{Revision} & \textbf{Date} & \textbf{Description} \\}                                             
+\tablehead{\hline \textbf{Revision} & \textbf{Date} & \textbf{Description} \\ \hline}                                              
+\tabletail{\hline}                                              
+\begin{xtabular}{|p{50pt}|p{65pt}|p{290pt}|}                                            
+\hline                                          
+        0.1    &       20130819       &       Template Document Draft  \\
+\hline                                          
+\end{xtabular}          
+
+
+
+\listoftodos
+
+
+\pagebreak{}
+
+\include{./Introduction/CASEIntroduction}
+%\include{./References/DocReferences}
+\include{./VowpawWabbit/VW_IntroInstall}
+
+
+\include{./Acronym_List/Acronyms}
+
+
+
+\end{document}
